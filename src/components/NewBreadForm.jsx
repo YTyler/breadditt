@@ -9,7 +9,7 @@ function NewBreadForm(props) {
 
   function handleNewBreadFormSubmission(event){
     event.preventDefault();
-    props.onNewBreadCreation({title: _title.value, content: _content.value, imageURL: _imageURL.value, id: v4()});
+    props.onNewBreadCreation({title: _title.value, content: _content.value, imageURL: _imageURL.value, id: v4(), count: 0});
     _title.value = '';
     _content.value =  '';
     _imageURL.value = '';
