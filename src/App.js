@@ -13,6 +13,7 @@ class App extends React.Component {
       masterBreadList: []
     };
     this.handleAddingNewBreadToList = this.handleAddingNewBreadToList.bind(this);
+    this.handleAddCount = this.handleAddCount.bind(this);
   }
   handleAddingNewBreadToList(newBread){
     var newMasterBreadList = this.state.masterBreadList.slice();
@@ -20,11 +21,22 @@ class App extends React.Component {
     this.setState({masterBreadList: newMasterBreadList});
   }
 
+  handleAddCount(id, score) {
+    var newMasterBreadList = this.state.masterBreadList.slice();
+    newMasterBreadList.forEach((bread) => {
+      if (bread.id == id) {
+        bread.count += score;
+      }
+    });
+    this.setState({masterBreadList: newMasterBreadList});
+  }
+
   render() {
+
     return (
       <div>
       <Switch>
-      <Route exact path='/' render={()=><Body onNewBreadCreation={this.handleAddingNewBreadToList} masterBreadList={this.state.masterBreadList} />} />
+      <Route exact path='/' render={()=><Body onAddCount={this.handleAddCount} onNewBreadCreation={this.handleAddingNewBreadToList} masterBreadList={this.state.masterBreadList} />} />
       </Switch>
       </div>
     );

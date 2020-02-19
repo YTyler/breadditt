@@ -12,10 +12,14 @@ function Body(props) {
     justifyContent: 'space-evenly'
   }
 
+  let ourBreadList = props.masterBreadList.sort((a,b) => {
+    return b.count - a.count
+  });
+
   return (
     <div style={bodyStyle}>
 
-      <BreadControl onNewBreadCreation={props.onNewBreadCreation} masterBreadList={props.masterBreadList}/>
+      <BreadControl onAddCount={props.onAddCount} onNewBreadCreation={props.onNewBreadCreation} masterBreadList={ourBreadList}/>
       <Subbreadits/>
     </div>
   );

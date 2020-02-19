@@ -14,10 +14,10 @@ class Bread extends React.Component {
 
 
   onUpvote(){
-    this.setState({count: this.state.count+1});
+    this.props.onAddCount(this.props.id, 1);
   }
   onDownvote(){
-    this.setState({count: this.state.count-1});
+    this.props.onAddCount(this.props.id, -1);
   }
 
   render(){
@@ -25,7 +25,7 @@ class Bread extends React.Component {
       <div>
       <button onClick={this.onUpvote}>Upvote</button>
       <h4>{this.props.title}</h4> <p>{this.props.content}</p>
-      <h4>{this.state.count}</h4>
+      <h4>{this.props.count}</h4>
 
       <button onClick={this.onDownvote}>Downvote</button>
 
@@ -34,8 +34,6 @@ class Bread extends React.Component {
   }
 }
 export default Bread;
-
-
 
 
 // <img src=`${props.imageURL}`></img>

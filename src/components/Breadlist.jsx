@@ -8,10 +8,14 @@ function Breadlist(props) {
     <div>
 
     {props.masterBreadList.map((bread, index) =>
-      <Bread onUpvote={props.onUpvote} count={props.count}
+      <Bread
+      onAddCount={props.onAddCount}
+      onUpvote={props.onUpvote}
+      count={bread.count}
       title={bread.title}
       content={bread.content}
       imageURL={bread.imageURL}
+      id={bread.id}
       key={bread.id} />
       )}
 

@@ -11,7 +11,7 @@ class BreadControl extends React.Component {
   render(){
     return (
       <div>
-      <Breadlist onUpvote={this.onUpvote} count={this.props.masterBreadList.count} masterBreadList={this.props.masterBreadList} />
+      <Breadlist onAddCount={this.props.onAddCount} onUpvote={this.onUpvote} count={this.props.masterBreadList.count} masterBreadList={this.props.masterBreadList} />
       <NewBreadForm onNewBreadCreation={this.props.onNewBreadCreation}/>
       </div>
     );
